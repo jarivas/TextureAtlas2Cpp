@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TextureAtlas2Cpp": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\El_lo\\Documents\\Kenney Game Assets (version 41)\\2D assets\\Topdown Tanks\\Spritesheet\\sheet_tanks.xml\""
+    }
+  }
+}
