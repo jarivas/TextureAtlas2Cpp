@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml;
+using System.IO;
 
 namespace TextureAtlas2Cpp
 {
@@ -7,7 +8,7 @@ namespace TextureAtlas2Cpp
     {
         static void Main(string[] args)
         {
-            string source, headerFile;
+            string source, className, file;
             XmlDocument doc;
 
             if (args.Length == 0)
@@ -18,22 +19,20 @@ namespace TextureAtlas2Cpp
             }
 
             source = args[0];
+            className = args[1];
 
-            doc = HeaderGenerator.ValidateFile(source, out headerFile);
+            doc = ClassGenerator.ValidateFile(source);
 
             if (doc == null)
             {
                 return;
             }
 
-            if (HeaderGenerator.GenerateHeader(doc, headerFile))
-            {
-                Console.WriteLine("Success!");
-            }
-            else
-            {
-                Console.WriteLine("Error!");
-            }
+            file = Path.GetDirectoryName(source) + "/" + className.ToSnakeCase();
+
+            ClassGenerator.GenerateHeader(className, file);
+
+            ClassGenerator.GenerateCpp(doc, className, file);
         }
     }
 }
