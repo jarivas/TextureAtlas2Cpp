@@ -54,7 +54,8 @@ namespace TextureAtlas2Cpp
         public static bool GenerateHeader(XmlDocument doc, string headerFile)
         {
             bool result = false;
-            string fileContent = @"#include <map>
+            string fileContent = @"#pragma once
+#include <map>
 #include <string>
 #include ""raylib.h""
 
