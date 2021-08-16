@@ -117,7 +117,7 @@ namespace TextureAtlas2Cpp
 
                 fileContent += "\r\n}\r\n";
 
-                fileContent += $"\r\nRectangle {className}::GetRectangle(string key)\r\n{{\r\n\treturn tiles[key];\r\n}}";
+                fileContent += $"\r\nRectangle {className}::GetRectangle(std::string key)\r\n{{\r\n\treturn tiles[key];\r\n}}";
                 fs.Write(Encoding.ASCII.GetBytes(fileContent));
             }
         }
